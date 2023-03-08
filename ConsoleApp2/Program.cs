@@ -1,25 +1,40 @@
 ﻿// Part 3 opdr 29
-string input;
-List<int> ages = new List<int>();
 List<string> names = new List<string>();
+List<int> birthYears = new List<int>();
 
-while ((input = Console.ReadLine()) != "")
+while (true)
 {
-    string[] parts = input.Split(',');
-    string name = parts[0];
-    int age = int.Parse(parts[1].Trim());
-    names.Add(name);
-    ages.Add(age);
-}
-int maxAge = ages[0];
-string oldestName = names[0];
-for (int i = 1; i < ages.Count; i++)
-{
-    if (ages[i] > maxAge)
+    Console.Write("Enter name and birth year (or press Enter to finish): ");
+    string input = Console.ReadLine();
+
+    if (string.IsNullOrEmpty(input))
     {
-        maxAge = ages[i];
-        oldestName = names[i];
+        break;
     }
 
+    string[] parts = input.Split(',');
+    string name = parts[0].Trim();
+    int birthYear = int.Parse(parts[1].Trim());
+    names.Add(name);
+    birthYears.Add(birthYear);
 }
-Console.WriteLine("The name of the oldest person is: " + oldestName);
+
+int currentYear = DateTime.Now.Year;
+int maxAge = int.MinValue;
+string longestName = string.Empty;
+
+for (int i = 0; i < names.Count; i++)
+{
+    string name = names[i];
+    int birthYear = birthYears[i];
+    int age = currentYear - birthYear;
+
+    if (age > maxAge || (age == maxAge && name.Length > longestName.Length))
+    {
+        maxAge = age;
+        longestName = name;
+    }
+}
+
+Console.WriteLine("The longest name is: " + longestName);
+Console.WriteLine("The highest age is: " + maxAge);
