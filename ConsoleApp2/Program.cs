@@ -1,40 +1,41 @@
-﻿// Part 3 opdr 31
-List<string> names = new List<string>();
-List<int> birthYears = new List<int>();
+﻿using ConsoleApp2;
+
+List<Book> books = new List<Book>();
 
 while (true)
 {
-    Console.Write("Enter name and birth year (or press Enter to finish): ");
-    string input = Console.ReadLine();
+    Console.Write("Enter book title (or press Enter to finish): ");
+    string title = Console.ReadLine();
 
-    if (string.IsNullOrEmpty(input))
+    if (string.IsNullOrEmpty(title))
     {
         break;
     }
 
-    string[] parts = input.Split(',');
-    string name = parts[0].Trim();
-    int birthYear = int.Parse(parts[1].Trim());
-    names.Add(name);
-    birthYears.Add(birthYear);
+    Console.Write("Enter number of pages: ");
+    int pages = int.Parse(Console.ReadLine());
+
+    Console.Write("Enter publication year: ");
+    int publicationYear = int.Parse(Console.ReadLine());
+
+    Book book = new Book(title, pages, publicationYear);
+    books.Add(book);
 }
 
-int currentYear = DateTime.Now.Year;
-int maxAge = int.MinValue;
-string longestName = string.Empty;
+Console.Write("What do you want to print (everything or title)? ");
+string input = Console.ReadLine();
 
-for (int i = 0; i < names.Count; i++)
+if (input == "everything")
 {
-    string name = names[i];
-    int birthYear = birthYears[i];
-    int age = currentYear - birthYear;
-
-    if (age > maxAge || (age == maxAge && name.Length > longestName.Length))
+    foreach (Book book in books)
     {
-        maxAge = age;
-        longestName = name;
+        Console.WriteLine(book.Title+ " (" +book.Pages+ " pages, published in " +book.PublicationYear+ ")");
     }
 }
-
-Console.WriteLine("The longest name is: " + longestName);
-Console.WriteLine("The highest age is: " + maxAge);
+else if (input == "title")
+{
+    foreach (Book book in books)
+    {
+        Console.WriteLine(book.Title);
+    }
+}
