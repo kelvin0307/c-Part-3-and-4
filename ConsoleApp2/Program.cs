@@ -1,8 +1,16 @@
 ﻿using System.IO;
 
-string path = @"C:\Users\kelvi\source\repos\ConsoleApp2\ConsoleApp2\data.txt";
-string[] lines = File.ReadAllLines(path);
-foreach (string line in lines)
+string path = @"C:\Users\kelvi\source\repos\ConsoleApp2\ConsoleApp2\guestlist.txt";
+HashSet<string> guestList = new HashSet<string>(File.ReadAllLines(path));
+
+Console.WriteLine("Enter your name:");
+string name = Console.ReadLine();
+
+if (guestList.Contains(name))
 {
-    Console.WriteLine(line);
+    Console.WriteLine("Welcome to the party, " + name + "!");
+}
+else
+{
+    Console.WriteLine("Sorry, you are not on the guest list.");
 }
