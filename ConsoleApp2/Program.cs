@@ -1,4 +1,4 @@
-﻿List<string> strings = new List<string>();
+﻿List<int> ints = new List<int>();
 
 while (true)
 {
@@ -7,7 +7,12 @@ while (true)
     {
         break;
     }
-    strings.Add(input);
+    int number = int.Parse(input);
+
+    ints.Add(number);
 }
 
-Console.WriteLine(strings.Count);
+foreach (int i in ints)
+{
+    Console.Write(i);
+}
