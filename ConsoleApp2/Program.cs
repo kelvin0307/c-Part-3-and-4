@@ -1,18 +1,8 @@
-﻿List<int> ints = new List<int>();
+﻿using System.IO;
 
-while (true)
+string path = @"C:\Users\kelvi\source\repos\ConsoleApp2\ConsoleApp2\data.txt";
+string[] lines = File.ReadAllLines(path);
+foreach (string line in lines)
 {
-    string input = Console.ReadLine();
-    if(input == "end")
-    {
-        break;
-    }
-    int number = int.Parse(input);
-
-    ints.Add(number);
-}
-
-foreach (int i in ints)
-{
-    Console.Write(i);
+    Console.WriteLine(line);
 }
