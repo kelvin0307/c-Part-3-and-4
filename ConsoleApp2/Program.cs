@@ -1,20 +1,16 @@
-﻿// Part 3 opdr 16
+﻿// Part 3 opdr 21
 
-List<string> strings = new List<string>();
+int[] array = { 5, 1, 3, 4, 2 };
+PrintArrayInStars(array);
 
-strings.Add("First");
-strings.Add("Second");
-strings.Add("Third");
-
-// Remember, this is how you print all the items in a list
-strings.ForEach(Console.WriteLine);
-
-static void RemoveLast(List<string> strings)
+void PrintArrayInStars(int[] array)
 {
-    strings.RemoveAt(strings.Count - 1);
+    foreach (int i in array)
+    {
+        for(int j = 0; j < i; j++)
+        {
+            Console.Write("*");
+        }
+        Console.WriteLine(" ");
+    }
 }
-
-RemoveLast(strings);
-RemoveLast(strings);
-
-strings.ForEach(Console.WriteLine);
