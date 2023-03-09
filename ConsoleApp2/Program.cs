@@ -1,16 +1,22 @@
-﻿using System.IO;
+﻿using ConsoleApp2;
 
-string path = @"C:\Users\kelvi\source\repos\ConsoleApp2\ConsoleApp2\guestlist.txt";
-HashSet<string> guestList = new HashSet<string>(File.ReadAllLines(path));
+HealthStation childrensHospital = new HealthStation();
 
-Console.WriteLine("Enter your name:");
-string name = Console.ReadLine();
+Person ethan = new Person("Ethan", 1, 110, 7);
+Person peter = new Person("Peter", 33, 176, 85);
 
-if (guestList.Contains(name))
-{
-    Console.WriteLine("Welcome to the party, " + name + "!");
-}
-else
-{
-    Console.WriteLine("Sorry, you are not on the guest list.");
-}
+Console.WriteLine(ethan.Name + " weight: " + childrensHospital.Weigh(ethan) + " kilos");
+Console.WriteLine(peter.Name + " weight: " + childrensHospital.Weigh(peter) + " kilos");
+
+childrensHospital.Feed(ethan);
+childrensHospital.Feed(peter);
+
+Console.WriteLine(ethan.Name + " weight: " + childrensHospital.Weigh(ethan) + " kilos");
+Console.WriteLine(peter.Name + " weight: " + childrensHospital.Weigh(peter) + " kilos");
+
+childrensHospital.Weigh(ethan);
+childrensHospital.Weigh(ethan);
+childrensHospital.Weigh(ethan);
+childrensHospital.Weigh(ethan);
+
+Console.WriteLine("weighings performed: " + childrensHospital.Weighings);
