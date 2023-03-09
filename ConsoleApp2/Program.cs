@@ -1,12 +1,13 @@
 ﻿using ConsoleApp2;
+PaymentTerminal lunchCafeteria = new PaymentTerminal();
 
-PaymentCard petesCard = new PaymentCard(10);
+double change = lunchCafeteria.DrinkCoffee(10);
+Console.WriteLine("remaining change " + change);
 
-Console.WriteLine("money " + petesCard.Balance);
-bool wasSuccessful = petesCard.TakeMoney(8);
-Console.WriteLine("successfully withdrew: " + wasSuccessful);
-Console.WriteLine("money " + petesCard.Balance);
+change = lunchCafeteria.DrinkCoffee(5);
+Console.WriteLine("remaining change " + change);
 
-wasSuccessful = petesCard.TakeMoney(4);
-Console.WriteLine("successfully withdrew: " + wasSuccessful);
-Console.WriteLine("money " + petesCard.Balance);
+change = lunchCafeteria.EatLunch(20);
+Console.WriteLine("remaining change " + change);
+
+Console.WriteLine(lunchCafeteria);
