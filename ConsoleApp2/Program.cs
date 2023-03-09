@@ -1,22 +1,12 @@
 ﻿using ConsoleApp2;
 
-HealthStation childrensHospital = new HealthStation();
+PaymentCard petesCard = new PaymentCard(10);
 
-Person ethan = new Person("Ethan", 1, 110, 7);
-Person peter = new Person("Peter", 33, 176, 85);
+Console.WriteLine("money " + petesCard.Balance);
+bool wasSuccessful = petesCard.TakeMoney(8);
+Console.WriteLine("successfully withdrew: " + wasSuccessful);
+Console.WriteLine("money " + petesCard.Balance);
 
-Console.WriteLine(ethan.Name + " weight: " + childrensHospital.Weigh(ethan) + " kilos");
-Console.WriteLine(peter.Name + " weight: " + childrensHospital.Weigh(peter) + " kilos");
-
-childrensHospital.Feed(ethan);
-childrensHospital.Feed(peter);
-
-Console.WriteLine(ethan.Name + " weight: " + childrensHospital.Weigh(ethan) + " kilos");
-Console.WriteLine(peter.Name + " weight: " + childrensHospital.Weigh(peter) + " kilos");
-
-childrensHospital.Weigh(ethan);
-childrensHospital.Weigh(ethan);
-childrensHospital.Weigh(ethan);
-childrensHospital.Weigh(ethan);
-
-Console.WriteLine("weighings performed: " + childrensHospital.Weighings);
+wasSuccessful = petesCard.TakeMoney(4);
+Console.WriteLine("successfully withdrew: " + wasSuccessful);
+Console.WriteLine("money " + petesCard.Balance);
