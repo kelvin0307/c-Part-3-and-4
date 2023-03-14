@@ -1,7 +1,12 @@
-﻿using ConsoleApp2;
+﻿// Try your code here, if you want
+using ConsoleApp2;
 
-Apartment manhattanStudioApt = new Apartment(1, 16, 5500);
-Apartment atlantaTwoBedroomApt = new Apartment(2, 38, 4200);
-Apartment bangorThreeBedroomApt = new Apartment(3, 78, 2500);
-Console.WriteLine(manhattanStudioApt.MoreExpensiveThan(atlantaTwoBedroomApt));
-Console.WriteLine(bangorThreeBedroomApt.MoreExpensiveThan(manhattanStudioApt));
+Song jackSparrow = new Song("The Lonely Island", "Jack Sparrow", 196);
+Song anotherSparrow = new Song("The Lonely Island", "Jack Sparrow", 196);
+Song spongebob = new Song("Bikini bottom", "Spongebob", 183);
+
+var result = jackSparrow.Equals(anotherSparrow);
+Console.WriteLine(result);
+
+var result2 = jackSparrow.Equals(spongebob);
+Console.WriteLine(result2);
