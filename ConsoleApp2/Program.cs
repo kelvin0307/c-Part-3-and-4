@@ -1,12 +1,17 @@
-﻿// Try your code here, if you want
-using ConsoleApp2;
+﻿using ConsoleApp2;
 
-Song jackSparrow = new Song("The Lonely Island", "Jack Sparrow", 196);
-Song anotherSparrow = new Song("The Lonely Island", "Jack Sparrow", 196);
-Song spongebob = new Song("Bikini bottom", "Spongebob", 183);
+SimpleDate date = new SimpleDate(13, 2, 2015);
+Console.WriteLine("Friday of the examined week is " + date);
 
-var result = jackSparrow.Equals(anotherSparrow);
-Console.WriteLine(result);
+SimpleDate newDate = date.AfterNumberOfDays(7);
+int week = 1;
+while (week <= 7)
+{
+    Console.WriteLine("Friday after " + week + " weeks is " + newDate);
+    newDate = newDate.AfterNumberOfDays(7);
 
-var result2 = jackSparrow.Equals(spongebob);
-Console.WriteLine(result2);
+    week = week + 1;
+}
+
+Console.WriteLine("The date after 790 days from the examined Friday is ... try it out yourself!");
+// Console.WriteLine("Try " + date.AfterNumberOfDays(790));
