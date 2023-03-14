@@ -1,22 +1,13 @@
-﻿// Try your code here, if you want
+﻿using ConsoleApp2;
 
-using ConsoleApp2;
+Pet lucy = new Pet("Lucy", "golden retriever");
+Person leo = new Person("Leo", lucy);
+Console.WriteLine(leo.Name + "has a friend called" + leo.Pet.Name + "(" + leo.Pet.Breed + ")");
 
-PaymentTerminal lunchCafeteria = new PaymentTerminal();
-Console.WriteLine(lunchCafeteria);
+Pet toothless = new Pet("toothless", "dragon");
+Person mike = new Person("Mike", toothless);
+Console.WriteLine(mike.Name + "has a friend called" + mike.Pet.Name + "(" + mike.Pet.Breed + ")");
 
-PaymentCard annesCard = new PaymentCard(2);
-
-Console.WriteLine("amount of money on the card is " + annesCard.Balance + " euros");
-
-bool wasSuccessful = lunchCafeteria.EatLunch(annesCard);
-Console.WriteLine("there was enough money: " + wasSuccessful);
-
-lunchCafeteria.AddMoneyToCard(annesCard, 100);
-
-wasSuccessful = lunchCafeteria.EatLunch(annesCard);
-Console.WriteLine("there was enough money: " + wasSuccessful);
-
-Console.WriteLine("amount of money on the card is " + annesCard.Balance + " euros");
-
-Console.WriteLine(lunchCafeteria);
+Pet stitch = new Pet("stitch", "blue alien");
+Person lilo = new Person("lilo", stitch);
+Console.WriteLine(lilo.Name + "has a friend called" + lilo.Pet.Name + "(" + lilo.Pet.Breed + ")");
