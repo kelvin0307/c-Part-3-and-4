@@ -1,13 +1,22 @@
-﻿using ConsoleApp2;
+﻿// Try your code here, if you want
+
+using ConsoleApp2;
+
 PaymentTerminal lunchCafeteria = new PaymentTerminal();
+Console.WriteLine(lunchCafeteria);
 
-double change = lunchCafeteria.DrinkCoffee(10);
-Console.WriteLine("remaining change " + change);
+PaymentCard annesCard = new PaymentCard(2);
 
-change = lunchCafeteria.DrinkCoffee(5);
-Console.WriteLine("remaining change " + change);
+Console.WriteLine("amount of money on the card is " + annesCard.Balance + " euros");
 
-change = lunchCafeteria.EatLunch(20);
-Console.WriteLine("remaining change " + change);
+bool wasSuccessful = lunchCafeteria.EatLunch(annesCard);
+Console.WriteLine("there was enough money: " + wasSuccessful);
+
+lunchCafeteria.AddMoneyToCard(annesCard, 100);
+
+wasSuccessful = lunchCafeteria.EatLunch(annesCard);
+Console.WriteLine("there was enough money: " + wasSuccessful);
+
+Console.WriteLine("amount of money on the card is " + annesCard.Balance + " euros");
 
 Console.WriteLine(lunchCafeteria);
